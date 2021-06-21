@@ -14,6 +14,8 @@ schedules:
   displayName: Weekly Sunday build
   always: true
 
+timeoutInMinutes: 10
+
 steps:
 - checkout: none
 - pwsh: | 
