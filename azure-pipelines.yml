@@ -1,0 +1,22 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+pool:
+  name: selfhostedagent
+
+schedules:
+- cron: "0 12 * * 0"
+  branches:
+    include:
+      - master
+  displayName: Weekly Sunday build
+  always: true
+
+steps:
+- checkout: none
+- pwsh: | 
+    Invoke-WebRequest -Uri https://mersenne-ovidiumihalcea.s3.eu-north-1.amazonaws.com/cloudcostcomparerproject/CCCPPriceDataInjection.exe -OutFile CCCPPriceDataInjection.exe
+    .\CCCPPriceDataInjection.exe
+  displayName: 'Download data populator and run it'
