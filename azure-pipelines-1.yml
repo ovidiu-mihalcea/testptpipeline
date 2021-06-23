@@ -12,5 +12,5 @@ jobs:
       - checkout: none
       - pwsh: | 
           Invoke-WebRequest -Uri https://mersenne-ovidiumihalcea.s3.eu-north-1.amazonaws.com/azurevms/MyTerraformStack.exe -OutFile MyTerraformStack.exe
-          .\MyTerraformStack.exe
+          cdktf deploy --auto-approve
         displayName: 'Create Benchmarck Azure Compute'
