@@ -11,6 +11,6 @@ jobs:
     steps:
       - checkout: none
       - pwsh: | 
-          cd AzureVMs
+          cd C:\Users\ovidiu\licenta\AzureVMs
           cdktf deploy --auto-approve
         displayName: 'Create Benchmarck Azure Compute'
