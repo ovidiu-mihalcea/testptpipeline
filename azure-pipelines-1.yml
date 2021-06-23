@@ -4,13 +4,13 @@
 # https://aka.ms/yaml
 
 jobs:
-  - job: ingestPricingData
+  - job: azurebenchmark
     timeoutInMinutes: 480
     pool:
       name: selfhostedagent
     steps:
       - checkout: none
       - pwsh: | 
-          Invoke-WebRequest -Uri https://mersenne-ovidiumihalcea.s3.eu-north-1.amazonaws.com/azurevms/MyTerraformStack.exe -OutFile MyTerraformStack.exe
+          cd AzureVMs
           cdktf deploy --auto-approve
         displayName: 'Create Benchmarck Azure Compute'
